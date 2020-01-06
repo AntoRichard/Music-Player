@@ -1,0 +1,6 @@
+{
+	"DATABASE_URL": "postgresql://manager:manager@localhost:5432/music",
+	"API_KEY": "AIzaSyAUsPxCpf6OnbvfsyIXyVbM4dYkV8Cwfic",
+	"CLIENT_ID": "981270358450-jatrlu8gvr28qhesu19vus649bn0a1al.apps.googleusercontent.com",
+	"CLIENT_SECRET": "981270358450-jatrlu8gvr28qhesu19vus649bn0a1al.apps.googleusercontent.com"
+}
