@@ -19,14 +19,20 @@ exports.getDelete = async (req, res, next) => {
 
 exports.postDelete = async (req, res, next) => {
     const {email} = req.body;
-    console.log(email)
+    console.log(email);
+    const date = new Date();
+    const cur_date = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+        console.log(cur_date)
     try {
-        // const response = await db.updateTable('USERS', 'DELETED','true',`EMAIL='${email}'`);
+        
         const response = await db.updateTable('USERS','deleted','true',`EMAIL='${email}'`)
-        // const response = await db.selectQuery('USERS');
+        const newres = await db.updateTable('USERS','deactivated',`'${cur_date}'`,`EMAIL='${email}'`);
+        const users = await db.selectQuery('USERS');
+        const user = users.filter(user => user.email === email);
         res.status(200).json({
             msg: 'Success',
-            isDeleted: true
+            isDeleted: true,
+            user
         });
     } catch (err) {
         res.status(500).json({
